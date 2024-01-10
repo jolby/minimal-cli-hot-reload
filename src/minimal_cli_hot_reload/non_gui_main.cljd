@@ -1,0 +1,17 @@
+(ns minimal-cli-hot-reload.non-gui-main
+  (:require
+   [clojure.string :as str]
+   ["package:hot_reload_runner/hot_reload_runner.dart" :as hrr
+    :refer [HotReloadRunner]]
+   ))
+
+(defn print-something []
+  ;; 1. Change the hello string to something else
+  ;; 2. run clj -M:cljd compile
+  ;; 3. In the attached terminal, enter 'r' to reload
+  ;; (dart:core/print "hello, world\n"))
+  (dart:core/print "It was the best of times, it was the... blurst of times...\n"))
+
+(defn main []
+  (HotReloadRunner/run print-something)
+)
